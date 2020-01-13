@@ -1,0 +1,21 @@
+<main>
+    <section>
+        <h2>Log in to your organizer</h2>
+    <div class="e-input-group">
+    <input class="e-input" type="text" required [(value)]="this.login" placeholder="Login">
+    <span class="e-input-group-icon"><fa-icon [icon]="faHatWizard"></fa-icon></span>
+    </div>
+    <div class="e-input-group">
+        <input class="e-input" placeholder="Password" type="password" required [(value)]="this.pass">
+        <span class="e-input-group-icon"><fa-icon [icon]="faKey"></fa-icon></span>
+
+        </div>
+        <div class="buttons">
+        <div class="e-btn-group">
+       <button ejs-button cssClass="e-success">Log in</button>
+       <button ejs-button cssClass="e-info">Create organizer</button>
+       </div>
+       </div>
+    </section>
+
+</main>
