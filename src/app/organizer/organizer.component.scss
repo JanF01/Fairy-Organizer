@@ -1,0 +1,102 @@
+main{
+    width:100%;
+    min-height:100vh;
+    max-height:100vh;
+    background: linear-gradient(to right,#010a58,#22015f);
+    h4{
+        font-weight:normal;
+        font-family:'Roboto','Lato',monospace;
+    }
+    
+}
+mat-toolbar{
+    z-index:10 ;
+    height:2.6em;
+    display:flex;
+    justify-content:flex-end;
+    box-shadow:0em 0.2em 0.2em 0.1em rgb(15, 15, 15);
+    h3{
+        font-weight:bold;
+        font-size:1em;
+        font-family:'Amatic SC','Lato', Courier, monospace;
+        cursor:pointer;
+        padding-right:2em;
+    }
+    h4{
+        font-size:0.85em;
+        position:relative;
+        right:155vh;
+    }
+    fa-icon{
+        margin-right:1em;
+        margin-left:-1.2em;
+        cursor:pointer;
+
+    }
+}
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:10%;
+    height:100vh;
+    background:#1d1d1d;
+    text-align:center;
+    h3{
+     
+        font-family:'Amatic SC','Lato', Courier, monospace;
+        color:white;
+        font-size:1.5em;
+        line-height:0.1em;
+        letter-spacing:0.05em;
+        font-weight:800;
+        &:first-child{
+            margin-right:0.3em;
+        }
+    }
+    ul{
+        padding:0 0 0 1.5em;
+        width:100%;
+        display:flex;
+        flex-direction:column;
+        list-style-type:none;
+        li{
+            margin:0;
+            margin-top:2.3em;
+            font-family:"Roboto",'Lato',monospace;
+            color:white;
+            display:flex;
+            width:100%;
+            justify-content:flex-start;
+            fa-icon{
+                margin-right:0.7em;
+            }
+        }
+    }
+}
+.options{
+    z-index:1;
+    width:90%;
+    margin-left:10%;
+    background:rgba(255, 255, 255, 0.904);
+    height:4em;
+
+    .e-input-group{
+        font-size:0.95em;
+        width:10%;
+        margin:1em 0 0 5%;
+    }
+}
+.callendary{
+    width:85%;
+    min-height:80vh;
+    background:white;
+    margin:2em 0 0 12.5%;
+    display:flex;
+    flex-wrap:wrap;
+    section{
+        width:calc( 99.05% / 6 );
+        min-height:calc( 100% / 4 );
+        border:0.08em solid rgba(0, 0, 0, 0.514);
+    }
+}

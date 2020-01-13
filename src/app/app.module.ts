@@ -10,6 +10,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ButtonModule } from '@syncfusion/ej2-angular-buttons';
 import { enableRipple } from '@syncfusion/ej2-base';
+import { OrganizerComponent } from './organizer/organizer.component';
+
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 enableRipple(true);
 
@@ -26,7 +30,8 @@ const appRoutes: Routes = [
     AppComponent,
     LoginComponent,
     NewOrganizerComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    OrganizerComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -36,7 +41,9 @@ const appRoutes: Routes = [
     BrowserModule,
     ButtonModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatToolbarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -33,3 +33,21 @@ body{
     font-family: 'Glorias';
     src: url('./assets/fonts/Gloria.ttf');
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.e-input-group-icon:before {
+  font-family: e-icons;
+}
+
+.e-input-group .e-input-group-icon.e-input-popup-date { /* csslint allow: adjoining-classes */
+  font-size:16px;
+}
+
+.e-input-group.e-small .e-input-group-icon.e-input-popup-date { /* csslint allow: adjoining-classes */
+  font-size:14px;
+}
+
+.e-input-group-icon.e-input-popup-date:before { /* csslint allow: adjoining-classes */
+  content: "";
+}
