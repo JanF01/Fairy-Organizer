@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   checkLogin(){
-  this.lg.logged = true;
+  this.lg.changeLoggedState();
   }
 
 }
