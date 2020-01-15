@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes} from '@angular/router';
+import { ModuleWithProviders} from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NewOrganizerComponent } from './new-organizer/new-organizer.component';
@@ -14,14 +15,23 @@ import { OrganizerComponent } from './organizer/organizer.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './organizer/dashboard/dashboard.component';
+import { CallendarComponent } from './organizer/callendar/callendar.component';
 
 enableRipple(true);
 
 const appRoutes: Routes = [
-  {path:'', component: WelcomeComponent},
- {path:'login', component: LoginComponent},
- {path:'create', component: NewOrganizerComponent}
-
+  {path:'', component: WelcomeComponent, outlet: "main"},
+ {path:'login', component: LoginComponent, outlet: "main"},
+ {path:'create', component: NewOrganizerComponent, outlet: "main"},
+ {path: 'calendary', component: OrganizerComponent, outlet: "main",
+ children:[
+   {path: '', component: CallendarComponent, outlet: 'organizerLayout'}
+ ]},
+ {path: 'dashboard', component: OrganizerComponent, outlet: "main",
+ children:[
+   {path: '', component: DashboardComponent, outlet: 'organizerLayout'}
+ ]}
 ];
 
 
@@ -31,12 +41,13 @@ const appRoutes: Routes = [
     LoginComponent,
     NewOrganizerComponent,
     WelcomeComponent,
-    OrganizerComponent
+    OrganizerComponent,
+    DashboardComponent,
+    CallendarComponent
   ],
   imports: [
     RouterModule.forRoot(
        appRoutes,
-       {enableTracing: true}   
     ),
     BrowserModule,
     ButtonModule,

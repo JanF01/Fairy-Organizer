@@ -1,3 +1,4 @@
+
 main{
     width:100%;
     min-height:100vh;
@@ -17,15 +18,16 @@ mat-toolbar{
     box-shadow:0em 0.2em 0.2em 0.1em rgb(15, 15, 15);
     h3{
         font-weight:bold;
-        font-size:1em;
+        font-size:0.9em;
         font-family:'Amatic SC','Lato', Courier, monospace;
         cursor:pointer;
         padding-right:2em;
     }
     h4{
-        font-size:0.85em;
-        position:relative;
-        right:155vh;
+        font-size:0.7em;
+        position:absolute;
+        left:14.5em;
+        top:0.75em;
     }
     fa-icon{
         margin-right:1em;
@@ -38,7 +40,7 @@ nav{
     position:fixed;
     top:0;
     left:0;
-    width:10%;
+    width:11em;
     height:100vh;
     background:#1d1d1d;
     text-align:center;
@@ -46,7 +48,7 @@ nav{
      
         font-family:'Amatic SC','Lato', Courier, monospace;
         color:white;
-        font-size:1.5em;
+        font-size:1.3em;
         line-height:0.1em;
         letter-spacing:0.05em;
         font-weight:800;
@@ -55,30 +57,39 @@ nav{
         }
     }
     ul{
-        padding:0 0 0 1.5em;
+        padding:0 0 0 0;
         width:100%;
         display:flex;
         flex-direction:column;
         list-style-type:none;
         li{
+            font-size:0.9em;
             margin:0;
-            margin-top:2.3em;
+            margin-top:0.8em;
+            height:3em;
+            display:flex;
+            align-items:center;
+            padding-left:1.6em;
             font-family:"Roboto",'Lato',monospace;
             color:white;
             display:flex;
-            width:100%;
+            width:10.6em;
             justify-content:flex-start;
             fa-icon{
                 margin-right:0.7em;
+            }
+            &:hover{
+                background:rgba(8, 96, 211, 0.308);
+                cursor:pointer;
             }
         }
     }
 }
 .options{
     z-index:1;
-    width:90%;
-    margin-left:10%;
-    background:rgba(255, 255, 255, 0.904);
+    width:calc( 100% - 11em );
+    margin-left:11em;
+    background:rgba(255, 255, 255, 0.829);
     height:4em;
 
     .e-input-group{
@@ -87,16 +98,4 @@ nav{
         margin:1em 0 0 5%;
     }
 }
-.callendary{
-    width:85%;
-    min-height:80vh;
-    background:white;
-    margin:2em 0 0 12.5%;
-    display:flex;
-    flex-wrap:wrap;
-    section{
-        width:calc( 99.05% / 6 );
-        min-height:calc( 100% / 4 );
-        border:0.08em solid rgba(0, 0, 0, 0.514);
-    }
-}
+

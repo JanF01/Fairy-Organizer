@@ -1,0 +1,14 @@
+<div class="container">
+   <div class="layout">
+    <aside><div class="d month">M</div><div class="d weeks">WW</div><div class="d week">W</div><div class="d day">D</div></aside>
+    <div class="left"><fa-icon [icon]="leftArrow"></fa-icon></div><h2>Jenuary 2020</h2><div class="right"><fa-icon [icon]="rightArrow"></fa-icon></div>
+    <menu><div class="d plus"><fa-icon [icon]="faPlus"></fa-icon></div><div class="d move"><fa-icon [icon]="faMove"></fa-icon></div></menu>
+</div>
+<div class="callendary">
+    <header><span>Monday</span><span>Tuesday</span><span>Wednesday</span><span>Thursday</span><span>Friday</span><span>Saturday</span><span>Sunday</span></header>
+ <section *ngFor="let day of this.days; let i = index">
+     <h3 [ngClass]="{'blacked':i>30}">{{day}}</h3>
+    <div class="content" [ngClass]="{'blacked':i>30}"></div>
+</section>
+</div>
+</div>

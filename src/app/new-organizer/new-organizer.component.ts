@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faKey,faHatWizard } from '@fortawesome/free-solid-svg-icons'
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-new-organizer',
@@ -16,7 +17,7 @@ export class NewOrganizerComponent implements OnInit {
   faHatWizard = faHatWizard;
 
 
-  constructor() {
+  constructor(private lg: LoginService) {
     this.login = '';
     this.pass = '';
     this.email = '';
@@ -35,5 +36,7 @@ export class NewOrganizerComponent implements OnInit {
 
 
   }
-
+  checkLogin(){
+    this.lg.changeLoggedState();
+    }
 }

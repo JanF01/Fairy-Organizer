@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {faSignOutAlt, faClock, faCalendarAlt, faBullseye, faTags, faAddressBook} from '@fortawesome/free-solid-svg-icons';
+import { LoginService } from '../login.service';
 
 
 @Component({
@@ -15,9 +16,13 @@ export class OrganizerComponent implements OnInit {
   faBullseye = faBullseye;
   faTags = faTags;
   faAddressBook = faAddressBook;
-  constructor() { }
+  
+  constructor(private lg: LoginService){
+
+  }
 
   ngOnInit() {
+
   }
 
   public focusIn(target: HTMLElement):void{
@@ -34,6 +39,14 @@ export class OrganizerComponent implements OnInit {
     setTimeout(()=>{
     ele.classList.remove('e-input-btn-ripple');
     },500);
+  }
+
+  goCalendar(){
+    document.getElementById('stuff').innerHTML="<app-callendar></app-callendar>";
+  }
+
+  logOut(){
+    this.lg.changeLoggedState();
   }
 
 }

@@ -4,7 +4,7 @@
         <h4>Dashboard</h4>
        </span>
   <span>
-   <h3>LOG OUT</h3>
+   <h3 routerLink="../" routerLinkActive="true" (click)="logOut()">LOG OUT</h3>
   </span>
   <fa-icon [icon]="faSignOut"></fa-icon>
 </mat-toolbar>
@@ -12,8 +12,8 @@
     <h3>FAIRY</h3>
     <h3>ORGANIZER</h3>
     <ul>
-        <li><fa-icon [icon]="faClock"></fa-icon>Dashboard</li>
-        <li><fa-icon [icon]="faCalendarAlt"></fa-icon>Calendar</li>
+        <li routerLink="../dashboard" routerLinkActive="true"><fa-icon [icon]="faClock"></fa-icon>Dashboard</li>
+        <li routerLink="../calendary" routerLinkActive="true"><fa-icon [icon]="faCalendarAlt"></fa-icon>Calendar</li>
         <li><fa-icon [icon]="faBullseye"></fa-icon>Goals</li>
         <li><fa-icon [icon]="faTags"></fa-icon>Labels</li>
         <li><fa-icon [icon]="faAddressBook"></fa-icon>Contacts</li>
@@ -26,37 +26,6 @@
      <span class="e-input-group-icon e-input-popup-date" (mouseup)="onMouseUp($event.target)" (mousedown)="onMouseDown($event.target)"></span>
 </div>
 </div>
-<div class="callendary">
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
- <section></section>
 
-
-     
-
-     
-
-</div>
+<router-outlet name="organizerLayout"></router-outlet>
 </main>
-
