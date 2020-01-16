@@ -31,8 +31,8 @@
 
 .container{
     width:calc( 99.5% - 11em );
-    min-height:calc(97vh - 8.2em);
-    max-height:calc(97vh - 8.2em);
+    min-height:calc(97vh - 8.43rem);
+    max-height:calc(97vh - 8.43rem);
     background:rgb(243, 243, 243);
     margin-left:11em;
     padding:5vh 0 0 0.5%;
@@ -140,8 +140,8 @@ header{
 .callendary{
     margin-top:2.2em;
   width:94%;
-  min-height: 75vh;
-  max-height: 75vh;
+  min-height: calc( 90vh - 9.5em );
+  max-height: 90%;
   border:0.05em rgba(0, 0, 0, 0.178) solid;
     display:flex;
     flex-wrap:wrap;
