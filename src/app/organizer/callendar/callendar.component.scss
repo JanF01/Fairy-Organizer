@@ -31,8 +31,7 @@
 
 .container{
     width:calc( 99.5% - 11em );
-    min-height:calc(97vh - 8.43rem);
-    max-height:calc(97vh - 8.43rem);
+    min-height:46em;
     background:rgb(243, 243, 243);
     margin-left:11em;
     padding:5vh 0 0 0.5%;
@@ -44,14 +43,32 @@
  aside{
      position:absolute;
      font-size:1em;
-     top:1em;
-     left:3.5em;
+     width:80.5%;
+     top:0em;
+     left:2.1em;
+     display:flex;
+     align-items:center;
+
+     menu{
+         flex:1;
+       display:flex;
+         justify-content:flex-end;
+         margin-left:23%;
+    
+     }
  }
+
+ aside>div{
+    flex:1;
+    display:flex;
+    justify-content:flex-start;
+}
 
  .d{
     font-size:0.95em;
-    width:2.6em;
-    height:2.5em;
+    padding:0.6em 0em 0.6em 0em;
+    width:2.5em;
+    text-align:center;
     margin-left:0.4em;
     @include radiusTopRight(0.3em);
     @include radiusTopLeft(0.3em);
@@ -61,9 +78,6 @@
 }
 
  .d, .left,.right{
-    display:flex;
-    align-items:center;
-    justify-content:center;
     background:white;
     color:rgb(97, 97, 97);
     float:left;
@@ -78,34 +92,29 @@
 
   h2{
       
-        top:0;
         font-weight:normal;
         font-size:1em;
         float:left;
         background:white;
         padding:0.6em 0.9em 0.6em 0.9em;
-        margin-top:0em; 
-        margin-top:calc(-1.7em * 1.2);
         box-shadow:0em 0.1em 0.2em -0.1em black;
     }
     .left,.right{
-        margin-top:-1.7em;
-        font-size:1.2em;
-        width:2em;
-        height:2em;
-        &:first-child{
+        margin-top:0.66em;
+        font-size:1.3em;
+        padding:0.33em 0.8em 0.5em 0.75em;
+        max-width:0.4em;
+        max-height:1em;
+        text-align:center;
+        &:nth-child(4){
             border-right:0.05em rgba(112, 112, 112, 0.377) solid;
-            @include radiusTopLeft(0.2em);
-            -o-border-bottom-left-radius:0.2em;
-            -ms-border-bottom-left-radius:0.2em;
-            -moz-border-bottom-left-radius:0.2em;
-            -webkit-border-bottom-left-radius:0.2em;
-            border-bottom-left-radius:0.2em;
+            @include radiusTopRight(0.2em);
+            @include radiusBottomRight(0.2em);
         }
-        &:nth-child(3){
+        &:nth-child(2){
            border-left:0.05em rgba(112, 112, 112, 0.377) solid;
-           @include radiusTopRight(0.2em);
-           @include radiusBottomRight(0.2em);
+           @include radiusTopLeft(0.2em);
+           @include radiusBottomLeft(0.2em);
         }
     }
 
@@ -124,8 +133,9 @@
 
 header{
     position:absolute;
-    top:4.2em;
-    width:93.5%;
+    top:-2.2em;
+    width:100.5%;
+    margin-left:-0.25%;
     display:flex;
     background:white;
     padding:0.5em 0em 0.5em 0em;
@@ -138,10 +148,10 @@ header{
     }
 }
 .callendary{
-    margin-top:2.2em;
+    position:absolute;
+    margin-top:4.2rem;
   width:94%;
-  min-height: calc( 90vh - 9.5em );
-  max-height: 90%;
+  min-height: 40em;
   border:0.05em rgba(0, 0, 0, 0.178) solid;
     display:flex;
     flex-wrap:wrap;
