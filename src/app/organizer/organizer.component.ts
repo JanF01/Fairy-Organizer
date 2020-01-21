@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {faSignOutAlt, faClock, faCalendarAlt, faBullseye, faTags, faAddressBook} from '@fortawesome/free-solid-svg-icons';
 import { LoginService } from '../login.service';
+import { Reference } from '@angular/compiler/src/render3/r3_ast';
 
 
 @Component({
@@ -16,6 +17,9 @@ export class OrganizerComponent implements OnInit {
   faBullseye = faBullseye;
   faTags = faTags;
   faAddressBook = faAddressBook;
+
+  dateValue: Date = new Date();
+
   
   constructor(private lg: LoginService){
 
@@ -25,28 +29,17 @@ export class OrganizerComponent implements OnInit {
 
   }
 
-  public focusIn(target: HTMLElement):void{
-    target.parentElement.classList.add('e-input-focus');
-  }
-  public focusOut(target: HTMLElement):void{
-    target.parentElement.classList.remove('e-input-focus');
-  }
-  public onMouseDown(target: HTMLElement):void{
-    target.classList.add('e-input-btn-ripple');
-  }
-  public onMouseUp(target: HTMLElement):void{
-    let ele: HTMLElement = target;
-    setTimeout(()=>{
-    ele.classList.remove('e-input-btn-ripple');
-    },500);
-  }
-
-  goCalendar(){
-    document.getElementById('stuff').innerHTML="<app-callendar></app-callendar>";
-  }
-
+ 
   logOut(){
     this.lg.changeLoggedState();
   }
+
+  changeOption(n: number){
+     this.lg.state = n;
+  }
+
+
+
+ 
 
 }

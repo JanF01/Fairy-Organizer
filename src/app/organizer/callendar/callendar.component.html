@@ -1,20 +1,50 @@
 <div class="container">
-   <div class="layout">
+    
+    <div class="e-input-group">
+        <input class="e-input" name='input' type="text" (focus)="focusIn($event.target)"
+         placeholder="Enter Date" (blur)="focusOut($event.target)" [(ngModel)]="this.dateValue" (change)="sendDate()"/>
+         <span class="e-input-group-icon e-input-popup-date" (click)="showCalendar()" (mouseup)="onMouseUp($event.target)" (mousedown)="onMouseDown($event.target)"></span>
+         <ejs-calendar [(ngModel)]="this.dateValue" ></ejs-calendar>
+        </div>
+        <button ejs-button cssClass="e-info" class="apply" id="apply">Search date</button>
+
+  <div class="hanging" id="loader"> </div>
+  <div class="layout">
     <aside>
-   <div>
-    <div class="d month">M</div><div class="d weeks">WW</div><div class="d week">W</div><div class="d day">D</div>
-    </div>
-    <div>
-     <div class="left"><fa-icon [icon]="leftArrow"></fa-icon></div><h2>Jenuary 2020</h2><div class="right"><fa-icon [icon]="rightArrow"></fa-icon></div>
-    </div>
-     <menu><div class="d plus"><fa-icon [icon]="faPlus"></fa-icon></div><div class="d move"><fa-icon [icon]="faMove"></fa-icon></div></menu>
-  </aside>
-</div>
-<div class="callendary">
-    <header><span>Monday</span><span>Tuesday</span><span>Wednesday</span><span>Thursday</span><span>Friday</span><span>Saturday</span><span>Sunday</span></header>
- <section *ngFor="let day of this.days; let i = index">
-     <h3 [ngClass]="{'blacked':i>30}">{{day}}</h3>
-    <div class="content" [ngClass]="{'blacked':i>30}"></div>
-</section>
-</div>
+      <div>
+        <div class="d month" (click)="changeLayoutMonth()">M</div>
+        <div class="d weeks" (click)="changeLayoutTwoWeeks()">WW</div>
+        <div class="d week" (click)="changeLayoutOneWeek()">W</div>
+        <div class="d day" (click)="changeLayoutDay()">D</div>
+      </div>
+      <div>
+        <div class="left">
+          <fa-icon [icon]="leftArrow"></fa-icon>
+        </div>
+        <h2>Jenuary 2020</h2>
+        <div class="right">
+          <fa-icon [icon]="rightArrow"></fa-icon>
+        </div>
+      </div>
+      <menu>
+        <div class="d plus">
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </div>
+        <div class="d move">
+          <fa-icon [icon]="faMove"></fa-icon>
+        </div>
+      </menu>
+    </aside>
+  </div>
+  <div class="callendary" id="cal">
+    <header>
+      <span>Monday</span><span>Tuesday</span><span>Wednesday</span><span>Thursday</span><span>Friday</span><span>Saturday</span><span>Sunday</span>
+    </header>
+    <section *ngFor="let day of this.days; let i = index">
+      <h3 [ngClass]="{'blacked': ( i>this.amountOfDays-5 && this.layout=='month' )}">{{day}}</h3>
+      <div class="content" [ngClass]="{'blacked': ( i>this.amountOfDays-5 && this.layout=='month' ) }">
+        <div class="mission"></div>
+      </div>
+    </section>
+  </div>
 </div>

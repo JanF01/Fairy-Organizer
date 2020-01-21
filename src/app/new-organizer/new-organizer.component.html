@@ -2,21 +2,21 @@
 <section>
     <h2>Log in to your organizer</h2>
 <div class="e-input-group">
-<input class="e-input" type="text" required [(value)]="this.login" placeholder="Login" onchange="logValue()">
+<input class="e-input" type="text" required [(ngModel)]="this.login" placeholder="Login" onchange="logValue()">
 <span class="e-input-group-icon"><fa-icon [icon]="faHatWizard"></fa-icon></span>
 </div>
 <div class="e-input-group">
-    <input class="e-input" placeholder="Email" type="text" required [(value)]="this.email">
+    <input class="e-input" placeholder="Email" type="text" required [(ngModel)]="this.email">
     <span class="e-input-group-icon"><fa-icon [icon]="faKey"></fa-icon></span>
 
     </div>
 <div class="e-input-group">
-    <input class="e-input" placeholder="Password" type="password" required [(value)]="this.pass">
+    <input class="e-input" placeholder="Password" type="password" required [(ngModel)]="this.pass">
     <span class="e-input-group-icon"><fa-icon [icon]="faKey"></fa-icon></span>
 
     </div>
 <div class="e-input-group">
-    <input class="e-input" placeholder="Repeat Password" type="password" required [(value)]="this.pass">
+    <input class="e-input" placeholder="Repeat Password" type="password" required [(ngModel)]="this.passRepeat">
     <span class="e-input-group-icon"><fa-icon [icon]="faKey"></fa-icon></span>
     
 </div>

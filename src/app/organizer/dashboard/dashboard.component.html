@@ -1,13 +1,23 @@
 <div class="container">
+  <div class="time">
+    <span>7<sup><u>00</u></sup></span>
+    <span>8<sup><u>00</u></sup></span>
+    <span>16<sup><u>00</u></sup></span>
+    <span>20<sup><u>00</u></sup></span>
+    <span>23<sup><u>00</u></sup></span>
+    </div>
   <nav>
-  <img src="assets/circle.png">
+  <img [src]="this.circlesImg[0]" (mouseenter)="circleMouseOver(0)" (mouseout)="circleMouseOut(0)">
   <div class="line"></div>
-  <img src="assets/circle.png">
+  <img [src]="this.circlesImg[1]" (mouseenter)="circleMouseOver(1)" (mouseout)="circleMouseOut(1)">
   <div class="line"></div>
-  <img src="assets/circle.png">
+  <img [src]="this.circlesImg[2]" (mouseenter)="circleMouseOver(2)" (mouseout)="circleMouseOut(2)">
   <div class="line"></div>
-  <img src="assets/circle.png">
+  <img [src]="this.circlesImg[3]" (mouseenter)="circleMouseOver(3)" (mouseout)="circleMouseOut(3)">
   <div class="line"></div>
-  <img src="assets/circle.png">
+  <img [src]="this.circlesImg[4]" (mouseenter)="circleMouseOver(4)" (mouseout)="circleMouseOut(4)">
   </nav>
+  <aside>
+    {{"Welcome, " + user.userLogin}}
+  </aside>
  </div>

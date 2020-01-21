@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from "@angular/forms";
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes} from '@angular/router';
@@ -17,6 +19,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './organizer/dashboard/dashboard.component';
 import { CallendarComponent } from './organizer/callendar/callendar.component';
+import { GoalsComponent } from './organizer/goals/goals.component';
+
 
 enableRipple(true);
 
@@ -31,6 +35,10 @@ const appRoutes: Routes = [
  {path: 'dashboard', component: OrganizerComponent, outlet: "main",
  children:[
    {path: '', component: DashboardComponent, outlet: 'organizerLayout'}
+ ]},
+ {path: 'goals', component: OrganizerComponent, outlet: "main",
+ children:[
+   {path: '', component: GoalsComponent, outlet: 'organizerLayout'}
  ]}
 ];
 
@@ -43,7 +51,8 @@ const appRoutes: Routes = [
     WelcomeComponent,
     OrganizerComponent,
     DashboardComponent,
-    CallendarComponent
+    CallendarComponent,
+    GoalsComponent,
   ],
   imports: [
     RouterModule.forRoot(
@@ -54,7 +63,9 @@ const appRoutes: Routes = [
     AppRoutingModule,
     FontAwesomeModule,
     MatToolbarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    CalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

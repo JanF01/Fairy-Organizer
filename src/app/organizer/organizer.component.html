@@ -12,19 +12,14 @@
     <h3>FAIRY</h3>
     <h3>ORGANIZER</h3>
     <ul>
-        <li routerLink="../dashboard" routerLinkActive="true"><fa-icon [icon]="faClock"></fa-icon>Dashboard</li>
-        <li routerLink="../calendary" routerLinkActive="true"><fa-icon [icon]="faCalendarAlt"></fa-icon>Calendar</li>
-        <li><fa-icon [icon]="faBullseye"></fa-icon>Goals</li>
+        <li [ngClass]="{'focus':this.lg.state == 0}" (click)="changeOption(0)" routerLink="../dashboard" routerLinkActive="true"><fa-icon [icon]="faClock"></fa-icon>Dashboard</li>
+        <li [ngClass]="{'focus':this.lg.state == 1}" (click)="changeOption(1)" routerLink="../calendary" routerLinkActive="true"><fa-icon [icon]="faCalendarAlt"></fa-icon>Calendar</li>
+        <li [ngClass]="{'focus':this.lg.state == 2}" (click)="changeOption(2)" routerLink="../goals" routerLinkActive="true"><fa-icon [icon]="faBullseye"></fa-icon>Goals</li>
         <li><fa-icon [icon]="faTags"></fa-icon>Labels</li>
         <li><fa-icon [icon]="faAddressBook"></fa-icon>Contacts</li>
     </ul>
 </nav>
 <div class="options">
-<div class="e-input-group">
-    <input class="e-input" name='input' type="text" (focus)="focusIn($event.target)"
-     placeholder="Enter Date" (blur)="focusOut($event.target)"/>
-     <span class="e-input-group-icon e-input-popup-date" (mouseup)="onMouseUp($event.target)" (mousedown)="onMouseDown($event.target)"></span>
-</div>
 </div>
 
 <router-outlet name="organizerLayout"></router-outlet>
