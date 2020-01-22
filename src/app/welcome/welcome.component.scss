@@ -58,13 +58,29 @@ main{
           background:rgba(255,255,255,1);
           color:rgb(31, 31, 31);
       }
-      .menu{
-          display:flex;
-          align-items:flex-end;
-      }
       &:nth-child(2){
           margin-left:4em;
       }
   }
-  
+  .menu{
+    display:flex;
+    align-items:flex-end;
+    flex-direction:row;
+}
+  }
+
+  @media only screen and (max-width: 1000px){
+      main{
+    .menu{
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+    }
+    button{
+    &:nth-child(2){
+        margin-top:1.5em;
+        margin-left:0em;
+    }
+}
+}
   }

@@ -31,7 +31,7 @@
 
 .container{
     width:calc( 99.5% - 11em );
-    min-height:46em;
+    min-height:52em;
     background:rgb(243, 243, 243);
     margin-left:11em;
     padding:5vh 0 0 0.5%;
@@ -50,14 +50,21 @@
     ejs-calendar{
         z-index:20;
         display:none;
-    }
-    .apply{
         position:absolute;
-        top:-6%;
-        left:23em;
+        top:-5.25%;
+        left:8em;
+    }
+    .apply,.cd{
+        position:absolute;
+        top:-5.25%;
+        left:2.8em;
+        height:2.4em;
         display:none;
     }
-    
+    .cd{
+        display:block;
+    }
+
     .hanging{
         width:50px;
         height:50px;
@@ -75,7 +82,7 @@
      font-size:1em;
      width:80.5%;
      top:0em;
-     left:2.1em;
+     left:1.2em;
      display:flex;
      align-items:center;
 
@@ -89,7 +96,7 @@
  }
 
  aside>div{
-    flex:1;
+    flex:0.5;
     display:flex;
     justify-content:flex-start;
 }
@@ -105,6 +112,9 @@
     @include radiusBottomRight(0.3em);
     @include radiusBottomLeft(0.3em);
     color:black;
+    &:first-child{
+        margin-left:1.5em;
+    }
 }
 
  .d, .left,.right{
@@ -124,6 +134,8 @@
       
         font-weight:normal;
         font-size:1em;
+        min-width:7.4em;
+        text-align:center;
         float:left;
         background:white;
         padding:0.6em 0.9em 0.6em 0.9em;
@@ -149,9 +161,10 @@
     }
 
     menu{
+        flex:1;
         position:absolute;
         top:0em;
-        left:calc( 100% - 11.5em );
+        left:calc( 100% - 11.6em );
 
         .plus,.move{
             background:rgb(33, 93, 224);
@@ -167,7 +180,8 @@ header{
     width:100.5%;
     margin-left:-0.25%;
     display:flex;
-    background:white;
+    background:#1d1d1d;
+    color:white;
     font-size:0.9em;
     padding:0.6em 0em 0.6em 0em;
     @include radiusTopLeft(0.4em);
@@ -182,15 +196,14 @@ header{
     position:absolute;
     margin-top:4.2rem;
   width:94%;
-  min-height: 40em;
-  border:0.05em rgba(0, 0, 0, 0.452) solid;
+  min-height: 45em;
     display:flex;
     flex-wrap:wrap;
     section{
-        width:calc( 100% / 7 - 0.1em );
         min-height:calc( 95% / 5 );
         max-height:calc( 95% / 5 );
-        border:0.05em rgba(0, 0, 0, 0.452) solid;
+        margin:0.15em;
+        //border:0.1em #1d1d1d solid;
        h3{
            font-size:0.9em;
            font-weight:normal;
@@ -219,7 +232,7 @@ header{
         }
        }
        .blacked{
-           background:rgba(97, 125, 250, 0.137);
+           background:rgba(66, 7, 160, 0.199);
        }
     }
 }
