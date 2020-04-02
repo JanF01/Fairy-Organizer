@@ -1,6 +1,15 @@
+@mixin border-radius($h){
+    -o-border-radius:$h;
+    -ms-border-radius:$h;
+    -moz-border-radius:$h;
+    -webkit-border-radius:$h;
+    border-radius:$h;
+
+}
+
 .container{
     width:calc( 99.5% - 11em );
-    min-height:46em;
+    min-height:52em;
     background:rgb(243, 243, 243);
     margin-left:11em;
     padding:5vh 0 0 0.5%;
@@ -8,4 +17,30 @@
     display:flex;
     flex-direction:column;
     align-items:center;
+}
+nav{
+    position:absolute;
+    top:2%;
+    left:1.5em;
+    display:flex;
+    
+    .goal{
+        font-size:0.7em;
+        color:white;
+      width:auto;
+      padding:0.5em 0.9em 0.5em 0.9em;
+      background:rgb(4, 72, 219);
+      margin-left:2em;
+      @include border-radius(0.6em);
+      font-family:'Roboto','Lato',monospace;
+      &:nth-child(2){
+        background:rgb(151, 5, 127);
+      }
+      &:nth-child(3){
+        background:rgb(22, 151, 5);
+      }
+      &:nth-child(4){
+        background:rgb(151, 5, 5);
+      }
+    }
 }

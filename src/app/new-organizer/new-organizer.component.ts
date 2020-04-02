@@ -1,7 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { faKey,faHatWizard } from '@fortawesome/free-solid-svg-icons'
-import { LoginService } from '../login.service';
-import { UserInfoModel } from "../models/userInfo";
+import { VerificationService, TokenPayload } from "../verification.service";
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-new-organizer',
@@ -10,48 +10,51 @@ import { UserInfoModel } from "../models/userInfo";
 })
 export class NewOrganizerComponent implements OnInit {
 
-  login: string;
-  pass: string;
-  passRepeat: string;
-  email: string;
-
-  faKey = faKey;
-  faHatWizard = faHatWizard;
-
-  user: UserInfoModel;
+  passRepeat: string
+  alert: string = ""
 
 
-  constructor(private lg: LoginService) {
-    
-    this.login = '';
-    this.pass = '';
-    this.email = '';
+  faKey = faKey
+  faHatWizard = faHatWizard
 
+  credentials: TokenPayload = {
+    id: 0,
+    login: '',
+    email: '',
+    password: ''
+  }
+
+
+  constructor( private verify: VerificationService, private router: Router) {
   }
 
   ngOnInit() {}
 
-  logValue() {
+  logValue(): boolean {
 
-    let loginInput = document.getElementsByTagName('Input') as HTMLCollectionOf < HTMLElement > ;
-    if (this.login.length > 5) {
-      loginInput[0].style.borderBottomColor = "green";
-      console.log("git");
+   
+    if (this.credentials.login.length > 4) {
+     return false
     }
+    return true
 
 
   }
-  checkLogin() {
-
-    this.user = new UserInfoModel({
-      userId: "12$d",
-      userLogin: this.login,
-      userEmail: this.email,
-      password: this.pass,
-      passwordRepeat: this.passRepeat
-    });
-
-    this.lg.loggedUser = this.user;
-    this.lg.changeLoggedState();
+  register() {
+    if(!this.logValue()){
+   if(this.credentials.password==this.passRepeat){
+    this.alert="Prawidłowo zarejestrowany";
+        this.verify.register(this.credentials).subscribe(()=>{
+           this.router.navigateByUrl("/(main:dashboard)");
+        },
+        err=>{
+              console.log(err)
+        })
+    }else{
+      this.alert="Password aren't the same"
+    }
+  }else{
+     this.alert="To short login - minimum length of 5"
+   }
   }
 }

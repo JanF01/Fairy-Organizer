@@ -1,7 +1,7 @@
-<nav *ngIf="this.logged">
-    <h3 routerLink="" routerLinkActive="true">FIZIGN</h3>
+<nav *ngIf="!verify.isLoggedIn()">
+    <h3 routerLink="" routerLinkActive="true" >FIZIGN</h3>
     <ul>
-    <li [routerLink]="[{ outlets: { main: ['login'] } }]" routerLinkActive="true">LOG IN</li>
+    <li [routerLink]="[{ outlets: { main: ['login'] } }]" routerLinkActive="true" >LOG IN</li>
     <li><img src="assets/menu.png"></li>
     </ul>
 </nav>

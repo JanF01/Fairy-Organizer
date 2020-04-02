@@ -2,10 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes} from '@angular/router';
-import { ModuleWithProviders} from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NewOrganizerComponent } from './new-organizer/new-organizer.component';
@@ -20,6 +20,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './organizer/dashboard/dashboard.component';
 import { CallendarComponent } from './organizer/callendar/callendar.component';
 import { GoalsComponent } from './organizer/goals/goals.component';
+
+import { VerificationService } from "./verification.service";
+import { GuardService } from "./guard.service";
+
 
 
 enableRipple(true);
@@ -65,9 +69,10 @@ const appRoutes: Routes = [
     MatToolbarModule,
     BrowserAnimationsModule,
     FormsModule,
-    CalendarModule
+    CalendarModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [VerificationService,GuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

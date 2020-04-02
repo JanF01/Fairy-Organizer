@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {faSignOutAlt, faClock, faCalendarAlt, faBullseye, faTags, faAddressBook} from '@fortawesome/free-solid-svg-icons';
-import { LoginService } from '../login.service';
 import { Reference } from '@angular/compiler/src/render3/r3_ast';
+import { VerificationService } from '../verification.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,11 +18,11 @@ export class OrganizerComponent implements OnInit {
   faBullseye = faBullseye;
   faTags = faTags;
   faAddressBook = faAddressBook;
+ 
 
-  dateValue: Date = new Date();
 
   
-  constructor(private lg: LoginService){
+  constructor(private verify: VerificationService, private router: Router){
 
   }
 
@@ -29,15 +30,23 @@ export class OrganizerComponent implements OnInit {
 
   }
 
- 
-  logOut(){
-    this.lg.changeLoggedState();
-  }
 
   changeOption(n: number){
-     this.lg.state = n;
+     this.verify.state = n;
+     switch(n){
+       case 0:
+     this.router.navigateByUrl("/(main:dashboard)");
+     break;
+     case 1:
+      this.router.navigateByUrl("/(main:calendary)");
+      break;
+      case 2:
+        this.router.navigateByUrl("/(main:goals)");
+        break;
+     }
   }
-
+  
+  
 
 
  

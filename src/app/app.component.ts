@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { LoginService } from './login.service';
+import { VerificationService } from './verification.service';
+import { GuardService } from './guard.service';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +9,14 @@ import { LoginService } from './login.service';
 })
 export class AppComponent {
   title = 'Organizer';
-  logged:boolean = false;
+  state = 0;
 
-  constructor(private lg: LoginService){
+  constructor(private verify: VerificationService, private guard: GuardService){
+     guard.canActivate()
+  }
 
-      this.logged = this.lg.logged;
-      
-      this.lg.loggedValue.subscribe(value=>{
-        this.logged = value;
-      })
+  onStateChange(e){
+    this.state=e;
   }
 
 }

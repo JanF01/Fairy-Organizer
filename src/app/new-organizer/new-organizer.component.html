@@ -2,16 +2,16 @@
 <section>
     <h2>Log in to your organizer</h2>
 <div class="e-input-group">
-<input class="e-input" type="text" required [(ngModel)]="this.login" placeholder="Login" onchange="logValue()">
+<input class="e-input" type="text" required [(ngModel)]="this.credentials.login" placeholder="Login" (onchange)="logValue()">
 <span class="e-input-group-icon"><fa-icon [icon]="faHatWizard"></fa-icon></span>
 </div>
 <div class="e-input-group">
-    <input class="e-input" placeholder="Email" type="text" required [(ngModel)]="this.email">
+    <input class="e-input" placeholder="Email" type="text" required [(ngModel)]="this.credentials.email">
     <span class="e-input-group-icon"><fa-icon [icon]="faKey"></fa-icon></span>
 
     </div>
 <div class="e-input-group">
-    <input class="e-input" placeholder="Password" type="password" required [(ngModel)]="this.pass">
+    <input class="e-input" placeholder="Password" type="password" required [(ngModel)]="this.credentials.password">
     <span class="e-input-group-icon"><fa-icon [icon]="faKey"></fa-icon></span>
 
     </div>
@@ -20,9 +20,10 @@
     <span class="e-input-group-icon"><fa-icon [icon]="faKey"></fa-icon></span>
     
 </div>
+<div class="alert">{{this.alert}}</div>
     <div class="buttons">
     <div class="e-btn-group">
-   <button ejs-button cssClass="e-success" routerLink="../dashboard" (click)="checkLogin()">Register account</button>
+   <button ejs-button cssClass="e-success" (click)="register()">Register account</button>
    </div>
    </div>
 </section>

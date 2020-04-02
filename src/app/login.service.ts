@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { UserInfoModel } from './models/userInfo';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +8,12 @@ import { UserInfoModel } from './models/userInfo';
 export class LoginService {
 
   logged:boolean = true;
-  loggedUser: UserInfoModel;
 
   state: number = 0;
   loggedValue: Subject<boolean> = new Subject<boolean>();
 
 
-  constructor() { 
+  constructor( private http: HttpClient) { 
      this.loggedValue.subscribe((value)=>{
           this.logged = value;
      });
@@ -23,4 +22,10 @@ export class LoginService {
   changeLoggedState() {
     this.loggedValue.next(!this.logged);
 }
+
+  logIn(){
+    var result = this.http.get("../server/index.js");
+  }
+
+  
 }

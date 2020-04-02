@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {faAngleLeft, faAngleRight, faArrowsAlt, faPlus, faCalendarAlt, faCalendarCheck} from '@fortawesome/free-solid-svg-icons';
+import { TimeService } from 'src/app/time.service';
 
 @Component({
   selector: 'app-callendar',
@@ -28,13 +29,17 @@ export class CallendarComponent implements OnInit {
   excerptLength: number = 17;
   layout: string = "month";
 
+  monthNames: Array<string> = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
 
   missionName: string = "Silent sir say desire fat him letter. Whatever settling goodness too and honoured she building answered her. Strongly thoughts remember mr to do consider debating. Spirits musical behaved on we he farther letters. Repulsive he he as deficient newspaper dashwoods we. Discovered her his pianoforte insipidity entreaties. Began he at terms meant as fancy. Breakfast arranging he if furniture we described on. Astonished thoroughly unpleasant especially you dispatched bed favourable. ";
   
 
 
-  constructor() { 
-     this.setMonthYear();
+  constructor( private time: TimeService) { 
+     time.setMonthYear();
   
   }
 
@@ -56,28 +61,26 @@ export class CallendarComponent implements OnInit {
 
     this.days.length = 0;
 
-    this.day = this.dateValue.getUTCDate();
-    this.dayOfTheWeek = this.dateValue.getUTCDay()-1;
+    this.day = this.time.getDay();
+    this.time.getDayOfTheWeek();
 
-    if(this.dayOfTheWeek==-1){
-      this.dayOfTheWeek=6;
+    if(this.time.dayOfTheWeek==-1){
+      this.time.dayOfTheWeek=6;
     }
 
 
-      let date1 = this.dateValue;
-      let date2 = new Date(date1.getFullYear(), date1.getMonth()+1, 0);
-      this.daysInAMonth = date2.getDate();
+      this.time.getDayInAMonth();
   
      if(this.layout=="month"){
-     for(let i=0;i<this.dayOfTheWeek;i++){
+     for(let i=0;i<this.time.dayOfTheWeek;i++){
        this.days.push("");
      } 
     }
   
     for(let i = this.day;i<=this.amountOfDays+this.day-1;i++){
       let y = i;
-      if(i>this.daysInAMonth && this.layout=="month"){
-          y = i-this.daysInAMonth;
+      if(i>this.time.daysInAMonth && this.layout=="month"){
+          y = i-this.time.daysInAMonth;
       }
       if(y<10){
       this.days.push("0"+y);
@@ -272,28 +275,18 @@ export class CallendarComponent implements OnInit {
       this.setUpLayout(this.layout,0);
   }
 
-  setMonthYear(){
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
-
-  this.month = monthNames[this.dateValue.getMonth()];
-  this.year = this.dateValue.getFullYear();
-  
-  }
 
   setMonthLast(){
-    this.dateValue.setMonth(this.dateValue.getUTCMonth()-1,1);
-    this.setMonthYear();
+    this.time.dateValue.setMonth(this.time.dateValue.getMonth()-1);
+    this.time.setMonthYear();
     this.setUpLayout(this.layout,0);
   }
 
   setMonthNext(){
-    this.dateValue.setMonth(this.dateValue.getUTCMonth()+1,1);
-    this.setMonthYear();
+    this.time.dateValue.setMonth(this.time.dateValue.getMonth()+1);
+    this.time.setMonthYear();
     this.setUpLayout(this.layout,0);
   }
-
 
 
 }

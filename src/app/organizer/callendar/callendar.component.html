@@ -1,7 +1,7 @@
 <div class="container">
 
   <button ejs-button cssClass="e-info" class="cd" id="cd" (click)="showCalendar()" >Change date &nbsp;&nbsp;<fa-icon [icon]="faCalendar"></fa-icon></button>
-         <ejs-calendar [(ngModel)]="dateValue" (change)="changeDate()"></ejs-calendar>
+         <ejs-calendar [(ngModel)]="time.dateValue" (change)="changeDate()"></ejs-calendar>
 
         <button ejs-button cssClass="e-info" class="apply" id="apply" (click)="changeDate()" ><fa-icon [icon]="faCalendarCheck" ></fa-icon></button>
 
@@ -18,7 +18,7 @@
         <div class="left" (click)="setMonthLast()">
           <fa-icon [icon]="leftArrow"></fa-icon>
         </div>
-        <h2>{{month + " " + year}}</h2>
+        <h2>{{this.monthNames[time.dateValue.getMonth()] + " " + time.year}}</h2>
         <div class="right" (click)="setMonthNext()">
           <fa-icon [icon]="rightArrow"></fa-icon>
         </div>
@@ -38,8 +38,8 @@
       <span>Monday</span><span>Tuesday</span><span>Wednesday</span><span>Thursday</span><span>Friday</span><span>Saturday</span><span>Sunday</span>
     </header>
     <section *ngFor="let day of this.days; let i = index" [hidden]="i>33">
-      <h3 [ngClass]="{'blacked': ( day!='' && i>(this.amountOfDays+this.dayOfTheWeek)-(this.daysInAMonth - this.day+1) && this.layout=='month' )}">{{day}}</h3>
-      <div class="content" [ngClass]="{'blacked': ( day!='' && i>(this.amountOfDays+this.dayOfTheWeek)-(this.daysInAMonth - this.day+1) && this.layout=='month' ) }">
+      <h3 [ngClass]="{'blacked': ( day!='' && i>(this.amountOfDays+this.time.dayOfTheWeek)-(this.time.daysInAMonth - this.day+1) && this.layout=='month' )}">{{day}}</h3>
+      <div class="content" [ngClass]="{'blacked': ( day!='' && i>(this.amountOfDays+this.time.dayOfTheWeek)-(this.time.daysInAMonth - this.day+1) && this.layout=='month' ) }">
         <div class="mission" *ngIf="day!=''"></div>
       </div>
     </section>

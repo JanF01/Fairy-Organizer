@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserInfoModel } from "../../models/userInfo";
-import { LoginService } from 'src/app/login.service';
+import { VerificationService, UserDetails } from 'src/app/verification.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,17 +9,16 @@ import { LoginService } from 'src/app/login.service';
 export class DashboardComponent implements OnInit {
 
   circlesImg: Array<string> = [];
-  user: UserInfoModel;
+  user: UserDetails
 
-
-  constructor(private lg: LoginService) {
+  constructor(private verify: VerificationService) {
     for(var i = 0;i<5;i++){
       this.circlesImg.push("assets/circle.png");
     }
    }
 
   ngOnInit(){
-    this.user = this.lg.loggedUser;
+      this.user = this.verify.getUserDetails();
    }
 
 
