@@ -46,7 +46,7 @@
     "jsonwebtoken": "^9.0.0",
     "mysql2": "^2.1.0",
     "node-gyp": "^6.1.0",
-    "nodemon": "^2.0.2",
+    "nodemon": "^2.0.22",
     "rxjs": "~6.4.0",
     "sequelize": "^5.21.5",
     "tslib": "^1.10.0",
